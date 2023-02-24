@@ -87,26 +87,26 @@ function render() {
             <h3 class="lws-matchName">Match ${item.id}</h3>
         </div>
         <div class="inc-dec">
-            <form class="incrementForm" id="form${item.id}" data-id=${item.id} >
+            <form onsubmit="handleFormSubmit(event)" class="incrementForm" id="form${item.id}" data-id=${item.id} >
                 <h4>Increment</h4>
                 <input
                     type="number"
                     name="increment"
                     class="lws-increment"
                     data-id=${item.id}
-                    onblur="HandleFunction(event, this.value)" 
-                />
+                    />
+                    
                 
             </form>
-            <form class="decrementForm">
+            <form class="decrementForm" onsubmit="handleFormSubmit(event)">
                 <h4>Decrement</h4>
                 <input
                     data-id=${item.id}
                     type="number"
                     name="decrement"
                     class="lws-decrement"
-                    onblur="HandleFunction(event, this.value)" 
-                />
+                    />
+                   
             </form>
         </div>
         <div class="numbers">
@@ -128,18 +128,33 @@ Reset.addEventListener("click", () => {
   store.dispatch(reset());
 });
 
-// action dispatching function
-function HandleFunction(event, value) {
-  event.preventDefault();
-  // console.log(value);
-  // console.log(event.target.dataset.id);
-  // console.log(event.target.name);
-if(event.target.name === "increment"){
-  store.dispatch(increment(+event.target.dataset.id, +value));
-}
-if(event.target.name === "decrement"){
-  store.dispatch(decrement(+event.target.dataset.id, +value));
-}
+// action dispatching function for input field change
+//in input field give this function onblur="HandleFunction(event, this.value)"
+// function HandleFunction(event, value) {
+//   event.preventDefault();
+//   // console.log(value);
+//   // console.log(event.target.dataset.id);
+//   // console.log(event.target.name);
+// if(event.target.name === "increment"){
+//   store.dispatch(increment(+event.target.dataset.id, +value));
+// }
+// if(event.target.name === "decrement"){
+//   store.dispatch(decrement(+event.target.dataset.id, +value));
+// }
   
-}
+// }
 
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const inputVal = event.target.children[1].value;
+  const inputName = event.target.children[1].name;
+  const inputId = event.target.children[1].dataset.id;
+  if(inputName === "increment"){
+    store.dispatch(increment(+inputId, +inputVal));
+  }
+  if(inputName === "decrement"){
+    store.dispatch(decrement(+inputId, +inputVal));
+  }
+
+}
