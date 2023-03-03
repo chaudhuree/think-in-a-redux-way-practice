@@ -1,5 +1,8 @@
 <h3>according to the image the main functionality is devided into 8 parts</h3>
 
+> see the picture in the folder
+
+
 <ol>
 <li>marked 1, is a button behind the plus. and it is a form. so handleSubmit is the main functionality here. jokhn kicu likhe enter a press kora hoy. aikhane state a text ta save kora hoicilo. payload hisebe oi text tai jay then oita k add kora hoy state a .</li>
 <li>completed all tasks: sob task gulo k map kore then just oigulor completed ta k true kore dewa hoy</li>
