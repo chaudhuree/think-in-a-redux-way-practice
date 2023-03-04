@@ -1,0 +1,16 @@
+{
+  "name": "4.1-async-logic-and-data-fetching_redux-thunk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.9",
+    "redux": "^4.2.1"
+  }
+}
