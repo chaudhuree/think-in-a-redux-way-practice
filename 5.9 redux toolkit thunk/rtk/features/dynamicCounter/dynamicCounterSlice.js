@@ -3,7 +3,7 @@ const { counterActions } = require("../counter/counterSlice");
 
 // initial state
 const initialState = {
-    count: 3,
+    count: 0,
 };
 
 const dynamicCounterSlice = createSlice({
@@ -24,10 +24,6 @@ const dynamicCounterSlice = createSlice({
     // },
     extraReducers: (builder) => {
         builder.addCase(counterActions.increment, (state, action) => {
-            //note: this state is dynamicCounter state
-            //here we are catching the counterActions/increment action
-            //when counterActions/increment action is dispatched then we will do something
-            //here with our state
             state.count += 1;
         });
     },
