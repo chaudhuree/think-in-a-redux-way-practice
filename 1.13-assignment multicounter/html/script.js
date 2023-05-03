@@ -75,6 +75,10 @@ const store = Redux.createStore(counterReducer);
 // render function
 function render() {
   const state = store.getState();
+  // it is returning the state object
+  // state object is an array of objects here
+  // of with map we will create a html string 
+  // and then we will set the innerHTML of container to that html string
   console.log(state);
   let html = "";
   state.map((item) => {
@@ -119,6 +123,12 @@ function render() {
 render()
 // subscribe to store
 store.subscribe(render);
+
+/*
+store.subscribe() is a method that allows components to subscribe to changes in the store. Whenever the state in the store changes, all the subscribed components will be notified, allowing them to re-render with the updated state.
+
+The code store.subscribe(render) registers a subscription to the store with a callback function called render. This means that every time the state in the store changes, the render function will be called.
+*/
 
 // dispatch action
 AddAnotherMatch.addEventListener("click", () => {
